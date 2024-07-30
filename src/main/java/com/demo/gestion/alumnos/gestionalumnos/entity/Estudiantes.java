@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "estudiantes")
 public class Estudiantes {
 
 	@Id
@@ -107,6 +109,31 @@ public class Estudiantes {
 
 	public void setExtranjero(boolean isExtranjero) {
 		this.isExtranjero = isExtranjero;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Estudiantes [id=");
+		builder.append(id);
+		builder.append(", nombre=");
+		builder.append(nombre);
+		builder.append(", primerApellido=");
+		builder.append(primerApellido);
+		builder.append(", segundoApellido=");
+		builder.append(segundoApellido);
+		builder.append(", edad=");
+		builder.append(edad);
+		builder.append(", gradoActual=");
+		builder.append(gradoActual);
+		builder.append(", direccion=");
+		builder.append(direccion);
+		builder.append(", isActive=");
+		builder.append(isActive);
+		builder.append(", isExtranjero=");
+		builder.append(isExtranjero);
+		builder.append("]");
+		return builder.toString();
 	}
 
 }

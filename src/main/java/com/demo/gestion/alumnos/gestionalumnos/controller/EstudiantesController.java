@@ -34,7 +34,7 @@ public class EstudiantesController {
 	@GetMapping
 	public List<Estudiantes> getAllEstudiantes() {
 		log.info("### Busqueda todos los estudiantes");
-		return estudiantesService.getAllStudents();
+		return (List<Estudiantes>) estudiantesService.getAllStudents();
 	}
 
 	@GetMapping("/{id}")
@@ -46,31 +46,37 @@ public class EstudiantesController {
 
 	@GetMapping("/status/{isActive}")
 	public List<Estudiantes> getEstudiantesByStatus(@PathVariable boolean isActive) {
+		log.info("getEstudiantesByStatus: {}", isActive);
 		return estudiantesService.getStudentsByStatus(isActive);
 	}
 
-	@GetMapping("/international/{isInternational}")
+	@GetMapping("/extranjero/{isExtranjero}")
 	public List<Estudiantes> getEstudiantesByExtranjero(@PathVariable boolean isExtranjero) {
+		log.info("getEstudiantesByExtranjero: {}", isExtranjero);
 		return estudiantesService.getStudentsByInternationalStatus(isExtranjero);
 	}
 
 	@GetMapping("/name/{name}")
 	public List<Estudiantes> getEstudiantesByNombre(@PathVariable String name) {
+		log.info("getEstudiantesByNombre: {}", name);
 		return estudiantesService.getStudentsByName(name);
 	}
 
-	@GetMapping("/age/{age}")
+	@GetMapping("/edad/{edad}")
 	public List<Estudiantes> getEstudiantesByEdad(@PathVariable int edad) {
+		log.info("getEstudiantesByEdad: {}", edad);
 		return estudiantesService.getStudentsByAge(edad);
 	}
 
-	@GetMapping("/grade/{grade}")
+	@GetMapping("/grado/{grado}")
 	public List<Estudiantes> getEstudiantesByGrado(@PathVariable String grado) {
+		log.info("getEstudiantesByGrado: {}", grado);
 		return estudiantesService.getStudentsByGrade(grado);
 	}
 
 	@PostMapping
 	public Estudiantes createEstudiantes(@RequestBody Estudiantes student) {
+		log.info("createEstudiantes: {}", student);
 		return estudiantesService.saveStudent(student);
 	}
 

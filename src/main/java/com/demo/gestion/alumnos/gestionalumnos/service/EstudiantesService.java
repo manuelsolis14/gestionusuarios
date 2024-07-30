@@ -15,7 +15,7 @@ public class EstudiantesService {
 	@Autowired
 	private EstudiantesRepository studentRepository;
 
-	public List<Estudiantes> getAllStudents() {
+	public Iterable<Estudiantes> getAllStudents() {
 		return studentRepository.findAll();
 	}
 
@@ -32,7 +32,7 @@ public class EstudiantesService {
 	}
 
 	public List<Estudiantes> getStudentsByName(String name) {
-		return studentRepository.findBynombre(name);
+		return studentRepository.findBynombreIgnoreCase(name);
 	}
 
 	public List<Estudiantes> getStudentsByAge(int age) {
@@ -44,6 +44,8 @@ public class EstudiantesService {
 	}
 
 	public Estudiantes saveStudent(Estudiantes student) {
+		System.err.println(student.isActive());
+		System.err.println(student.isExtranjero());
 		return studentRepository.save(student);
 	}
 

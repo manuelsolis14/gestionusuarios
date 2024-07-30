@@ -9,7 +9,11 @@ public class DatosEntradaModel implements Serializable {
 	 */
 	private static final long serialVersionUID = 7906379978839637080L;
 
-	private String nombreCompleto;
+	private String nombre;
+
+	private String primerApellido;
+
+	private String segundoApellido;
 
 	private Integer edad;
 
@@ -21,12 +25,28 @@ public class DatosEntradaModel implements Serializable {
 
 	private Boolean isExtranjero;
 
-	public String getNombreCompleto() {
-		return nombreCompleto;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNombreCompleto(String nombreCompleto) {
-		this.nombreCompleto = nombreCompleto;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getPrimerApellido() {
+		return primerApellido;
+	}
+
+	public void setPrimerApellido(String primerApellido) {
+		this.primerApellido = primerApellido;
+	}
+
+	public String getSegundoApellido() {
+		return segundoApellido;
+	}
+
+	public void setSegundoApellido(String segundoApellido) {
+		this.segundoApellido = segundoApellido;
 	}
 
 	public Integer getEdad() {
